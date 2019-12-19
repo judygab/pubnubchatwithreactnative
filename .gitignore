@@ -60,3 +60,4 @@ buck-out/
 
 #keys
 .env
+envs.js

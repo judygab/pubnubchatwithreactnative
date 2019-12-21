@@ -8,32 +8,32 @@ import {
   Image
 } from "react-native";
 export default class Login extends Component {
-  state = { username: "", password: "" };
+  state = { username: "i", password: "g" };
   login() {
-  if (
-    (user[0].username == this.state.username &&
-      user[0].password == this.state.password) ||
-    (user[1].username == this.state.username &&
-      user[1].password == this.state.password)
-  ) {
+  // if (
+  //   (user[0].username == this.state.username &&
+  //     user[0].password == this.state.password) ||
+  //   (user[1].username == this.state.username &&
+  //     user[1].password == this.state.password)
+  // ) {
     this.props.navigation.navigate("MainChat", {
       username: this.state.username
     });
-  } else {
-    console.log(this.state);
-    alert("username or password is incorrect");
-  }
+  // } else {
+  //   console.log(this.state);
+  //   alert("username or password is incorrect");
+  // }
 }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.logo}>
           <Image
-            source={require("../img/react.jpg")}
+            // source={require("../img/react.jpg")}
             style={{ width: 66, height: 58 }}
           />
           <Image
-            source={require("../img/pubnublogo.png")}
+            // source={require("../img/pubnublogo.png")}
             style={{ width: 60, height: 60 }}
           />
         </View>
@@ -53,7 +53,7 @@ export default class Login extends Component {
             onChangeText={password => this.setState({ password })}
             />
           <View style={styles.btnContiner}>
-            <TouchableOpacity style={styles.btn} >
+            <TouchableOpacity style={styles.btn} onPress={() => this.login()}>
               <Text style={styles.btntext}>Login</Text>
             </TouchableOpacity>
           </View>

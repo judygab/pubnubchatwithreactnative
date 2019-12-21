@@ -1,6 +1,8 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Login from "./src/components/Login";
-import MainChat from "./src/components/MainChat";
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import Login from "./src/containers/Login";
+import MainChat from "./src/containers/MainChat";
+
 const AppNavigator = createStackNavigator(
   {
     Login: {
@@ -11,7 +13,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: 'Login',
   }
 );
 export default createAppContainer(AppNavigator);

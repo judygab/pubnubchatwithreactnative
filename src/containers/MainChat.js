@@ -26,7 +26,7 @@ import {
 
 import { GiftedChat } from 'react-native-gifted-chat';
 import PubNubReact from 'pubnub-react';
-import {REACT_APP_PUBNUB_PUBLISH_KEY, REACT_APP_PUBNUB_SUBSCRIBE_KEY} from './envs.js';
+import {REACT_APP_PUBNUB_PUBLISH_KEY, REACT_APP_PUBNUB_SUBSCRIBE_KEY} from '../../envs.js';
 
 const RoomName = "MainChat1";
 
@@ -39,7 +39,15 @@ export default class MainChat extends Component {
       presenceTimeout: 10 });
     this.pubnub.init(this);
     this.id = this.randomid();
-    static navigationOptions = ({ navigation }) => {
+    this.state = {
+      isTyping: false,
+      messages: [],
+      onlineUsers: [],
+      onlineUsersCount: 0
+
+    };
+
+    const navigationOptions = ({ navigation }) => {
       return {
         headerTitle:
           navigation.getParam("onlineUsersCount", "No") + " member online",
@@ -54,15 +62,9 @@ export default class MainChat extends Component {
           />
         )
       };
-  }
-
-  state = {
-    isTyping: false,
-    messages: [],
-    onlineUsers: [],
-    onlineUsersCount: 0
-
   };
+};
+
 
   componentWillMount() {
     this.props.navigation.setParams({
@@ -227,8 +229,7 @@ export default class MainChat extends Component {
        </View>
      );
    }
- }
-};
+ };
 
 const styles = StyleSheet.create({
   online_user_avatar: {

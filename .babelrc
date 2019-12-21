@@ -1,6 +1,3 @@
 {
-  "presets": ["react-native", "module:react-native-dotenv"],
-  "plugins": [
-    "transform-inline-environment-variables"
-  ]
+  "presets": ["module:metro-react-native-babel-preset"]
 }
